@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Generate Activity Test</title>
+<style>
+#result
+{
+	border:double #000;
+	min-height:100px;
+	min-width:100px;
+}
+</style>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script>
+$(document).ready(function(e) {
+    $("#send_req").click(function()
+	{
+		var type = $("#type").val();
+		var option = $("#option").val();
+		var message = $("#message").val();
+		var url = "http://192.168.0.104/saware/generate_activity.php?user_id=1&type='"+type+"'&options='"+option+"'&message='"+message+"' ";
+		//http://192.168.0.104/saware/generate_activity.php?user_id=1&type=%27C%27&options=%27from_the_web%27&message=%27message%27
+		console.log(url);
+		alert(url);
+		$("#result").load(url);
+	})
+});
+</script>
+</head>
+
+<body>
+<input id = "type" type="text" name="text" /><br />
+<input id = "option" type="text" name="option" /><br />
+<input id = "message" type="text" name="message" /><br />
+<button id="send_req">Send!</button>
+<br />
+<br />
+<div id="result">
+</div>
+</body>
+</html>
